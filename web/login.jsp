@@ -62,7 +62,7 @@
             if (vcode.length == 0) {
                 $.messager.show({
                     title : "消息提示",
-                    msg : "驗證碼不能為空!",
+                    msg : "验证码不能为空!",
                     showType : "show"
                 });
                 return false;
@@ -77,10 +77,10 @@
                     "vcode" : $("#vcode").val(),
                     "role" : switchValue
                 },
-                success : function(result) {
-                    if (result == "adminLoginSuccess") {
+                success : function(Result) {
+                    if (Result == "adminLoginSuccess") {
                         window.location.href = "index.jsp";
-                    } else if (result == "plantLoginSuccess") {
+                    } else if (Result == "plantLoginSuccess") {
                         window.location.href = "index.jsp";
                     } else {
                         $.messager.show({

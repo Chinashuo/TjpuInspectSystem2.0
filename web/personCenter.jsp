@@ -820,8 +820,9 @@ $('#photo1').attr('src',$('#photo').filebox('getValue'));
     </div>
 
     </body>
-<%--</c:if>--%>
-<%--<c:if test="${sessionScope.uname==null}">--%>
-    <%--非法访问，请先联系管理员--%>
-<%--</c:if>--%>
+</c:if>
+<c:if test="${sessionScope.uname==null}">
+    非法访问，请先联系管理员
+</c:if>
+
 </html>

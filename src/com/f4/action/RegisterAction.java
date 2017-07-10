@@ -34,7 +34,7 @@ public class RegisterAction extends ActionSupport {
         Login login = new Login();
         login.setUname(uname);
         login.setUpwd(dbutils.makeMD5(upwd));
-        login.setRole("宸℃煡鍛�");
+        login.setRole("巡查员");
         UserInfo userinfo = new UserInfo();
         userinfo.setUname(uname);
         userinfo.setRuname(runame);

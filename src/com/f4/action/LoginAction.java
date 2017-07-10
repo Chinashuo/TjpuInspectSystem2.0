@@ -31,14 +31,16 @@ public class LoginAction extends ActionSupport {
 
     @Action(value = "login")
     public void login() {
+        System.out.print("aaaaa");
         try {
             ServletActionContext.getResponse().setCharacterEncoding("utf-8");
             PrintWriter out = ServletActionContext.getResponse().getWriter();
-            // 鐛插彇session灏嶈薄
+
             HttpSession session = ServletActionContext.getRequest().getSession();
 
-            String imgvcode = session.getAttribute("rand").toString();
-            if (vcode.equals(imgvcode)) {
+          //  String imgvcode = session.getAttribute("rand").toString();
+
+
                 DBUtils dbutils=new DBUtils();
                 Login login=new Login();
                 login.setUname(uname);
@@ -48,27 +50,58 @@ public class LoginAction extends ActionSupport {
                 if(temp){
                     session.setAttribute("uname",uname);
                     session.setAttribute("role",role);
-                    if(role.equals("绠＄悊鍛�"))
+                    if(role.equals("管理员"))
                     {
                         returnResult = "adminLoginSuccess";
                         session.setAttribute("uname", uname);
                         session.setAttribute("result", returnResult);}
                     else{
-                        returnResult = "adminLoginSuccess";}
+                        returnResult = "plantLoginSuccess";}
                 }else
                 {
                     returnResult = "yonghuming or mima cuowu";
                 }
                 dbutils.close();
-            } else {
-                returnResult = "yanzhengma Error";
-            }
-            out.print(returnResult);
+
+                out.print(returnResult);
             out.flush();
             out.close();
+
         } catch (IOException e) {
 
         }
+//           if (vcode.equals(111)) {
+//
+//                DBUtils dbutils=new DBUtils();
+//                Login login=new Login();
+//                login.setUname(uname);
+//                login.setUpwd(dbutils.makeMD5(upwd));
+//                login.setRole(role);
+//                boolean temp=dbutils.login(login);
+//                if(temp){
+//                    session.setAttribute("uname",uname);
+//                    session.setAttribute("role",role);
+//                    if(role.equals("管理员"))
+//                    {
+//                        returnResult = "adminLoginSuccess";
+//                        session.setAttribute("uname", uname);
+//                        session.setAttribute("result", returnResult);}
+//                    else{
+//                        returnResult = "plantLoginSuccess";}
+//                }else
+//                {
+//                    returnResult = "yonghuming or mima cuowu";
+//                }
+//                dbutils.close();
+//            } else {
+//                returnResult = "yanzhengma Error";
+//            }
+//            out.print(returnResult);
+//            out.flush();
+//            out.close();
+//        } catch (IOException e) {
+//
+//        }
 
     }
     @Action(value = "androidlogin")

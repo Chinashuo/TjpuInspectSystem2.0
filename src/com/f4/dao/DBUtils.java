@@ -53,7 +53,7 @@ public class DBUtils implements CommonDB {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/edudb", "root", "123456");
 
         } catch (Exception e) {
-            System.out.println("數據庫連接失敗");
+            System.out.println("数据库连接失败");
         }
     }
 
@@ -69,9 +69,9 @@ public class DBUtils implements CommonDB {
             if (rs.next())
                 return true;
         } catch (Exception e) {
-            System.out.println("登錄異常");
+            System.out.println("登录异常");
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class DBUtils implements CommonDB {
             if (rs.next())
                 return true;
         } catch (Exception e) {
-            System.out.println("登錄異常");
+            System.out.println("登录异常");
         }
         return false;
     }
