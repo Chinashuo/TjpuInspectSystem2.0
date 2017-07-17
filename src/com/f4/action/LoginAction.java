@@ -114,16 +114,17 @@ public class LoginAction extends ActionSupport {
             Login login=new Login();
             login.setUname(uname);
             login.setUpwd(dbutils.makeMD5(upwd));
+            System.out.print("-------------"+login.getUname());
             boolean temp=dbutils.androidlogin(login);
             if(temp){
                 session.setAttribute("uname",uname);
                 session.setAttribute("role",role);
-                returnResult = "鐧婚檰鎴愬姛" ;
+                returnResult = "登录成功" ;
 
             }else
 
             {
-                returnResult = "鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒";
+                returnResult = "登录失败";
             }
             dbutils.close();
             out.print(returnResult);

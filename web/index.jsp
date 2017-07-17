@@ -358,7 +358,7 @@
                              </script>
 
                         </div> -->
-        <img alt="" src="images/logo.png">
+        <img alt="" src="images/logo.jpg" width="300px" height="50px">
         <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
           <li><a data-toggle="dropdown" class="dropdown-toggle"
                  href="#"> <img id="photo2" class="admin-pic img-circle"

@@ -74,7 +74,7 @@
                 data : {
                     "uname" : $("#uname").val(),
                     "upwd" : $("#upwd").val(),
-                    "vcode" : $("#vcode").val(),
+                   // "vcode" : $("#vcode").val(),
                     "role" : switchValue
                 },
                 success : function(Result) {
@@ -142,7 +142,25 @@
                 });
             });
         }) ;
-
+        var code;
+        function createCode() {
+            code = "";
+            var codeLength = 4; //验证码的长度
+            var checkCode = document.getElementById("checkCode");
+            var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c',
+                'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+                'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A',
+                'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+            for (var i = 0; i < codeLength; i++) {
+                var charNum = Math.floor(Math.random() * 52);
+                code += codeChars[charNum];
+            }
+            if (checkCode) {
+                checkCode.className = "code";
+                checkCode.innerHTML = code;
+            }
+        }
     </script>
     <style type="text/css">
         /* 圆形样式 */
@@ -225,8 +243,9 @@
                             <td><label for="upwd">请输入验证码</label> <input type="text"
                                                                         id="vcode" name="vcode" placeholder="请输入验证码" /></td>
                             <td style="text-align: center;"><a
-                                    href="javascript:changevcode()"><img id="imgcode"
-                                                                         src="vcode.jsp" width="100px" height="20px" style="vertical-align: middle;"/></a></td>
+                                    href="javascript:createCode()"><a href="#" onclick="createCode()">看不清换一张</a>
+                                <div id="checkCode" onclick="createCode()"></div>
+                                </a></td>
                         </tr>
                     </table>
 
